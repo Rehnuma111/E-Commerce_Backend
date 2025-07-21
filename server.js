@@ -9,11 +9,15 @@ import userRoutes from './routes/userRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
+import cors from 'cors';
 
 const port = process.env.PORT || 5000;
 
 connectDB();
-
+app.use(cors({
+  origin: 'https://e-commerce-d7xt.onrender.com',
+  credentials: true
+}));
 const app = express();
 
 app.use(express.json());
